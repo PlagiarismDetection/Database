@@ -37,3 +37,7 @@ class Document(ABC):
     def push(cls, dbname, collection):
         cls.__pdf_push(dbname, collection)
         cls.__docx_push(dbname, collection)
+
+    @staticmethod
+    def getCollection(dbname, colname):
+        return dbname[colname]
