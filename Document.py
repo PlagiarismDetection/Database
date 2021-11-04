@@ -1,7 +1,7 @@
 from abc import ABC
 from Reader.DOCXReader import DOCXReader
 from Reader.PDFReader import PDFReader
-from Database.DatabaseConnection import Connection
+from Database.Connection import Connection
 
 
 class Document(ABC):
