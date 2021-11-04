@@ -39,8 +39,6 @@ class Document(ABC):
             collection_name.insert_many(docx_docs)
         DOCXReader.clean(docx_data)
 
-    def push(self, collection_eng, collection_vie):
-        self.__pdf_push(self.dbname, collection_eng)
-        self.__pdf_push(self.dbname, collection_vie)
-        self.__docx_push(self.dbname, collection_eng)
-        self.__docx_push(self.dbname, collection_vie)
+    def push(self, collection):
+        self.__pdf_push(self.dbname, collection)
+        self.__docx_push(self.dbname, collection)
