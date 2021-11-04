@@ -1,13 +1,13 @@
 from abc import ABC
-from Reader.DOCXReader import DOCX, DOCXReader
+from Reader.DOCXReader import DOCXReader
 from Reader.PDFReader import PDFReader
-from Database.DatabaseConnection import DatabaseConnection
+from Database.DatabaseConnection import Connection
 
 
-class PushData(ABC):
+class Document(ABC):
     def __init__(self, CONNECTION_STRING, collection_name):
         super().__init__()
-        self.dbname = DatabaseConnection.connect(
+        self.dbname = Connection.connect(
             CONNECTION_STRING, collection_name)
 
     @staticmethod
