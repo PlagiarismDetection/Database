@@ -9,7 +9,6 @@ class Connection(ABC):
 
     @staticmethod
     def __connect(CONNECTION_STRING, dbname):
-        # CONNECTION_STRING = "mongodb+srv://phuockaus:phuockaus0412@pds.qfuxg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
         client = MongoClient(CONNECTION_STRING)
         return client[dbname]
 
