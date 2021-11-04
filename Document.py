@@ -28,7 +28,7 @@ class Document(ABC):
     def __docx_push(cls, dbname, folder):
         docx_data = DOCXReader.getDOCXList(folder)
         docx_docs = list(
-            map(lambda data: cls.createDocuments(data), docx_data))
+            map(lambda data: cls.__createDocuments(data), docx_data))
         if(docx_docs != []):
             collection_name = dbname[folder]
             collection_name.insert_many(docx_docs)
