@@ -5,11 +5,6 @@ from Database.Connection import Connection
 
 
 class Document(ABC):
-    def __init__(self, CONNECTION_STRING, collection_name):
-        super().__init__()
-        self.dbname = Connection.connect(
-            CONNECTION_STRING, collection_name)
-
     @staticmethod
     def __createDocuments(fileObject):
         item = {'Title': fileObject.getTitle(),
@@ -39,6 +34,7 @@ class Document(ABC):
             collection_name.insert_many(docx_docs)
         DOCXReader.clean(docx_data)
 
-    def push(self, collection):
-        self.__pdf_push(self.dbname, collection)
-        self.__docx_push(self.dbname, collection)
+    @classmethod
+    def push(cls, dbname, collection):
+        cls.__pdf_push(dbname, collection)
+        cls.__docx_push(dbname, collection)
