@@ -42,9 +42,3 @@ class Document(ABC):
     def getCollection(dbname, colname):
         collection = dbname[colname]
         return collection.find()
-
-    @staticmethod
-    def readInputs(folder):
-        pdf_data = PDFReader.getPDFList(folder)
-        docx_data = DOCXReader.getDOCXList(folder)
-        return pdf_data + docx_data
